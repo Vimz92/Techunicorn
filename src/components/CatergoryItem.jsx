@@ -1,49 +1,75 @@
-import axios from 'axios';
-import {useState, useEffect} from 'react';
+import { FavoriteBorderOutlined } from '@material-ui/icons';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+const Info = styled.div`
+opacity: 0;
+width: 100%;
+height: 100%;
+position: absolute;
+top:0;
+left:0;
+background-color:rgba(0,0,0,0.2);
+z-index: 3;
+transition: all 0.5s ease;
+`;
 
 
 const Container = styled.div`
 flex:1;
-position: relative;
-
-`
-
-const ImgContainer = styled.div`
+margin: 30px;
+height: 450px;
 display: flex;
-flex:1;
-
+align-items: center;
+justify-content: center;
+position: relative;
+&:hover ${Info}{
+  opacity: 1;
+  
+}
 `;
+
+const Circle = styled.div`
+width: 200px;
+height: 200px;
+border-radius: 50%;
+background-color: white;
+position: absolute;
+`;
+
+
 
 
 const Image = styled.img`
-
-width: 20vw;
-height: 40vh;
-margin: 10px;
-object-fit: cover;
-// background-color: gray;
-
-`
-const Buy =  styled.div`
-
-
+height: 75%;
+z-index: 2;
 `;
 
+
+const Icon = styled.div`
+
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: 15rem;
+transition: all 0.5s ease;
+cursor: pointer;
+
+&:hover{
+  background-color: red;
+  transform: scale(1);
+}
+`;
 
 const Name = styled.h1`
 font-size:24px;
 font-weight: bold;
 font-family: 'Merriweather', serif;
-`
-const Info = styled.div`
-display: flex;
-align-items: center;
-text-align: center;
-flex-direction: column;
-`
+`;
 
 const Button = styled.button`
 width: 30%;
@@ -68,63 +94,39 @@ font-weight: 400;
 font-family: 'DM Sans', sans-serif;
 `
 
-const Rating = styled.div`
-
-`
 
 const Price = styled.div`
 
 `
 
 const CatergoryItem = ({item}) => {
-const [Loading, setLoading] = useState(false)
-const [data, setData] = useState([])
-
-useEffect(() => {
-  setLoading(true);
-axios({
-  method: "GET",
-  url: "https://fakestoreapi.com/products"
-}).then(res=>{
-  console.log(res.data)
-  setData(res.data)
-}).catch(err => console.log(err))
-.finally(() => setLoading(false));
-}, [])
-
-
-
 
   return (
-        
+        <> 
     <Container>
-      {Loading && <div> <h1> Loading...</h1></div> }
-      <Link to={`/shop`}> 
-      {data.map((item)=> (
-                    <Buy bg={item.id}> 
-
-                <ImgContainer>
-                <Image src={item.image} />
-                </ImgContainer>
-                 
+      <Circle />
+ 
+                <Image src={item.image} />  
                  <Info> 
-                   <Link to={`/categories`}> 
+                 <Icon>
+                  <FavoriteBorderOutlined/>
+                  </Icon>
+                  <Link to={`/shop`}> 
                  <Button> Shop </Button>
+                 </Link>
                  <Name>{item.title}</Name>
                   <Desc>{item.desc}</Desc>
                   <Price>{item.price}</Price>
-                  </Link>
+                
                   
                   </Info>
 
-                  </Buy>
-      ))}
+                
+      
 
-     
-             </Link>
-    
-            
+   
     </Container>
+    </>
   
      
   )

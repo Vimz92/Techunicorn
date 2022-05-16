@@ -3,7 +3,8 @@ import HeroShop from '../components/HeroShop'
 import Footer from '../components/Footer'
 import Productsfilter from '../components/Productsfilter'
 import Recommended from '../components/Recommended'
-import Catergories from '../components/Catergories'
+import CatergoryItem from '../components/CatergoryItem'
+import Product from '../components/Product'
 
 
 
@@ -12,9 +13,9 @@ const ShopFullFiller = () => {
     <div>
     <Header />
     <HeroShop />
-   
+    <Product />
     <Productsfilter />
-    <Catergories />
+
     <Recommended />
     <Footer />
     

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
+  margin-top: 24rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,13 +35,6 @@ const Title = styled.h5`
   font-weight: 700;
 `;
 
-const Title2 = styled.h2`
-
-  justify-content: center;
-  font-size: 48px;
-  font-family: "Merriweather", serif;
-  font-weight: 700;
-`;
 
 
 //Right

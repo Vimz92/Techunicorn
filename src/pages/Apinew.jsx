@@ -1,7 +1,7 @@
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import Catergories from '../components/Catergories'
+import Catergory from '../components/Catergory'
 
 
 
@@ -11,7 +11,7 @@ const Home = () => {
 
     <Header/>
     <Hero />
-    <Catergories />
+    <Catergory />
     <Footer />
     
     

@@ -49,7 +49,6 @@ color: white;
     background-color: yellow;
     color: black;
     transform: scale(1);
-
 `
 
 const Button1 = styled.button`

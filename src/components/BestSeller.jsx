@@ -1,12 +1,13 @@
+import { FavoriteBorderOutlined } from "@material-ui/icons";
 import styled from "styled-components"
-import { sliderItems } from "../data";
+import { shopfiller } from "../data";
+
 
 
 const TextContainer = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-around;
-margin-top: 25px;
 ;`
 
 
@@ -14,92 +15,121 @@ const TextLeft = styled.h2`
 font-size: 36px;
 font-weight: bold;
 font-family: 'Merriweather';
-margin-right: 46rem;
+margin-right: 78rem;
 ;`
+
+const Info = styled.div`
+margin: 30px;
+opacity: 1;
+width: 100%;
+height: 100%;
+top:0;
+left:0;
+z-index: 3;
+transition: all 0.5s ease;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+`;
 
 
 const Container = styled.div`
-width: 100%;
-height: 100%;
+flex:1;
+margin: 30px;
+height: 600px;
 display: flex;
 flex-wrap: wrap;
 align-items: center;
-justify-content: space-between;
+justify-content: center;
 position: relative;
-overflow: hidden;
+&:hover ${Info}{
+  opacity: 1;
+  transform: scale(1);
+}
 `;
 
-const ImgContainer = styled.div`
+const Circle = styled.div`
+
+
+`
+const Button = styled.button`
+border: 3px solid white;
+border-radius: 10px;
+background-color:  #F86338;
+padding: 15px 20px;
+`
+const Image = styled.img`
+z-index: 2;
+margin: 25px;
+width: 100%;
+height: 40vh;
+`;
+
+const Icon = styled.div`
+margin-top: 24px;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: white;
+display: flex;
 align-items: center;
 justify-content: center;
-
-display: flex;
-
+transition: all 0.5s ease;
+cursor: pointer;
+&:hover{
+  background-color: red;
+}
 `;
 
-const Image = styled.img`
-height: 50%;
-width: 50%;
-`
+
 
 const Title1 = styled.h1`
-display: flex;
-flex-direction: column;
+font-size: 24px;
+font-family: "Merriweather", serif;
+font-weight: 700;
+color: red;
 `
 
-const Title2 = styled.h2`
-
+const Price = styled.p`
+font-size: 18px;
+font-weight: 700;
 `
 
-const Desc = styled.div`
-
-`
-
-const Info = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-
-`
-const Price = styled.div`
-
-`
 
 const Sell = styled.div`
 
 `
 
-
-
 const BestSeller = () => {
     return (
-   <> 
+   <>   
+   
                 <TextContainer>
                 <TextLeft> Best Seller</TextLeft>      
                 </TextContainer> 
-        
                 <Container>
-
-                {sliderItems.map((item)=> (
-        
-                    <Sell bg={item.bg} key={item.id}> 
-
-                <ImgContainer>
-                <Image src={item.img} />
-                </ImgContainer>
-                 
-                 <Info> 
-                 <Title1>{item.title1}</Title1>
-                 <Title2>{item.title2}</Title2>
-                  <Desc>{item.desc}</Desc>
-                  <Price>{item.price}</Price>
-                  </Info>
-
-                  </Sell>
-   
+                {shopfiller.map((item)=> (
+                    <Sell bg={item.bg} key={item.id}>
+                         <Info> 
+                          <Icon>
+                          <Circle />
+                            <FavoriteBorderOutlined />
+                            </Icon>
+                           
+                         
+                         <Image src={item.image} />
+                         <Title1>{item.name}</Title1>
+                         <Price>{item.price}</Price>
+                         <Button> Shop </Button>
+                         </Info>
+                        </Sell>
+                      
+                        
         ))}
 
             </Container>
+
             </>
      
   )

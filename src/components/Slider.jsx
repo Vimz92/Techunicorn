@@ -1,55 +1,67 @@
-import { ArrowLeft, ArrowRight } from "@material-ui/icons"
+import { ArrowLeft, ArrowRight, FavoriteBorderOutlined } from "@material-ui/icons"
 import { useState } from "react";
 import styled from "styled-components"
 import { newArrivals } from "../data";
-import { Link } from "react-router-dom";
+
 
 
 
 const TextContainer = styled.div`
-
 display: flex;
 align-items: center;
-justify-content: space-between;
-margin-top: 25px;
+justify-content: space-around;
 ;`
 
 
 const TextLeft = styled.h2`
-margin-top: 24rem;
 font-size: 36px;
 font-weight: bold;
 font-family: 'Merriweather';
-margin-right: 46rem;
+text-decoration: none;
 ;`
 
 
 const TextRight = styled.h5`
 font-size: 24px;
 font-family: 'Merriweather';
-font-weight: 400;
+font-weight: bold;
 cursor: pointer;
 ;`
 
+const NewRight = styled.h5`
 
+;`
+
+const Info = styled.div`
+opacity: 0;
+width: 100%;
+height: 150%;
+top:0;
+left:0;
+z-index: 3;
+`;
 
 const Container = styled.div`
-
-width: 100%;
-height: 100%;
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-justify-content: space-between;
-position: relative;
 overflow: hidden;
-
+margin-bottom: 35rem;
+flex:1;
+margin: 10px;
+height: 600px;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+z-index: 3;
+&:hover ${Info}{
+    opacity: 1;
+    transform: scale(2);
+}
 `;
 
 
 
 const Arrow = styled.div`
-
+background-color: #F86338;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -62,66 +74,69 @@ margin: auto;
 cursor: pointer;
 opacity: 0.5;
 z-index: 2;
-`
-const Wrapper = styled.div`;
+`;
+
+const Wrapper = styled.div`
+margin-left: 20rem;
 height: 100%;
 display: flex;
 transition: all 1.5s ease;
-transform: translateX(${props=> props.slideIndex * -100}vw);
-`
-
-const Slide = styled.div`
-text-align: center;
-width: 100vw;
-height: 70vh;
-display: flex;
-align-items: center;
-background-color: #${props=>props.bg};
+transform: translateX(${props=> props.slideIndex * -60}vw);
 `;
 
+const Slide = styled.div`
+`;
+  
 
-const ImgContainer = styled.div`
-
-width: 30vw;
-height: 100vh;
-display: flex;
-flex-wrap: wrap;
-
-`
 
 const Image = styled.img`
 height: 50%;
-width: 80%;
-margin: 10px;
+width: 40%;
+z-index:4;
 `
+const Circle = styled.div`
+
+`;
+
+
+const Icon = styled.div`
+
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: 50rem;
+transition: all 0.5s ease;
+cursor: pointer;
+&:hover{
+  background-color: red;
+  transform: scale(1);
+}
+`;
+
+
 
 const Title1 = styled.h1`
-
+font-size: 24px;
+color: red;
 `
 
-const Title2 = styled.h2`
 
+const Button = styled.button`
+border: 3px solid white;
+border-radius: 10px;
+background-color:  #F86338;
+padding: 15px 20px;
 `
 
-const Desc = styled.div`
 
-`
-
-const Info = styled.div`
-
-`
 const Price = styled.div`
-
+font-size: 18px;
+color:  #F86338;
 `
-
-
-
-
-
-
-
-
-
 
 
 const Slider = () => {
@@ -139,15 +154,17 @@ const Slider = () => {
   return (
    
 <>
-    <Link to={`/categories`}> 
+
      <TextContainer>
-        <TextLeft> New Arrival</TextLeft>    
+        <TextLeft> New Arrivals</TextLeft>    
+        <NewRight> 
         <TextRight> See All</TextRight>  
+        </NewRight>
     </TextContainer> 
-    </Link>
+    
 
         <Container>
-
+        <Circle />
         <Arrow direction="left" onClick={()=> handleClick("left")}> 
         <ArrowLeft/>
         </Arrow>
@@ -155,20 +172,19 @@ const Slider = () => {
 
         {newArrivals.map((item)=> (
 
-            <Slide bg={item.bg} key={item.id}> 
-
-      <Link to={`/shop`}> 
-        <ImgContainer>
-        <Image src={item.img} />
-        </ImgContainer>
-        </Link>
-        <Info> 
-        <Title1>{item.title1}</Title1>
-        <Title2>{item.title2}</Title2>
-         <Desc>{item.desc}</Desc>
+    <Slide bg={item.bg} key={item.id}> 
+    <Icon>
+          <FavoriteBorderOutlined />
+        </Icon>
+   
+         <Image src={item.img} />
+         <Title1>{item.title1}</Title1>
          <Price>{item.price}</Price>
+         <Button> Shop </Button>
+         
+        <Info> 
+        
          </Info>
- 
         </Slide>
 ))}
    
@@ -179,6 +195,7 @@ const Slider = () => {
         </Arrow>
 
     </Container>
+   
     </>
   )
 }

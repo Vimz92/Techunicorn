@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
+
 const Container = styled.div`
 margin-left: 40px;
 height: 60px;
-
 `;
 
 const Wrapper = styled.div`
@@ -42,44 +42,10 @@ align-items: center;
 `;
 
 const Logo = styled.div`
+background-color: #F86338;
 `;
 
 //Right
-const Right = styled.div`
-flex: 1;
-`;
-
-const RightWrapper = styled.div`
-padding: 40px 10px;
-display: flex;
-align-items: center;
-justify-content: center;
-
-`;
-
-const ContainerWrapper = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-around;
-`;
-
-const IconContainer = styled.div`
-width: 40px;
-height: 40px;
-border: 1px solid #000000;
-border-radius: 50%;
-margin-left: 15px;
-`;
-
-
-const IconText = styled.h6`
-font-size: 16px;
-padding-left: 10px;
-margin-top: 10px;
-align-items: center;
-justify-content: center;
-`;
-
 
 
 
@@ -175,35 +141,7 @@ const Navbar1 = () => {
             </svg>
           </Logo>
         </Center>
-        <Right>
-            <RightWrapper> 
-                <ContainerWrapper> 
-                <IconContainer> 
-                    <IconText>   Fb</IconText>
-                </IconContainer>
-                </ContainerWrapper>
-
-                <ContainerWrapper> 
-                <IconContainer> 
-                    <IconText>   Tw</IconText>
-                </IconContainer>
-                </ContainerWrapper>
-
-                <ContainerWrapper> 
-                <IconContainer> 
-                    <IconText>   lg</IconText>
-                </IconContainer>
-                </ContainerWrapper>
-
-                <ContainerWrapper> 
-                <IconContainer> 
-                    <IconText>   Yt </IconText>
-                </IconContainer>
-                </ContainerWrapper>
-
-            </RightWrapper>
-
-        </Right>
+       
       </Wrapper>
     </Container>
   );

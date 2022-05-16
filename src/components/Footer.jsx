@@ -4,9 +4,9 @@ import styled from "styled-components"
 
 const Container = styled.div`
 margin-top: 9rem;
-height: 60vh;
+height: 40vh;
 display: flex;
-background-color: #F86338;
+
 
 `
 const Left = styled.div`
@@ -14,18 +14,18 @@ flex:1;
 display: flex;
 flex-direction: column;
 padding: 20px;
-background-color: #F86338;
+
 `
 
 const LogoContainer = styled.div`
 margin-top:2rem;
-background-color: #F86338;
+
 `
 
 const Logo = styled.div`
 flex:1;
 cursor: pointer;
-background-color: #F86338;
+
 `
 
 
@@ -37,15 +37,11 @@ margin: 20px 0px;
 font-size: 16px;
 font-family: "DM Sans", sans-serif;
 font-weight: 400;
-background-color: #F86338;
-
 `
 
 
 const DescContainer = styled.p`
 margin-bottom: 9rem;
-background-color: #F86338;
-
 `
 
 const Copyright = styled.div`
@@ -53,13 +49,10 @@ display: flex;
 font-size: 16px;
 font-family: "DM Sans", sans-serif;
 font-weight: 400;
-background-color: #F86338;
-
 `
 
 const CopyrightContainer = styled.div`
 margin-right: 9rem;
-
 `
 
 const Center = styled.div`
@@ -67,7 +60,6 @@ flex:1;
 padding: 20px;
 margin-top:9rem;
 margin-left:9rem;
-background-color: #F86338;
 `
 
 const Title = styled.h3`
@@ -75,8 +67,6 @@ margin-bottom: 30px;
 font-size: 16px;
 font-family: "DM Sans", sans-serif;
 font-weight: 700;
-background-color: #F86338;
-
 `
 
 const List = styled.ul`
@@ -85,7 +75,6 @@ padding:0;
 list-style: none;
 display: flex;
 flex-direction: column;
-background-color: #F86338;
 `
 
 const ListItem = styled.li`
@@ -96,14 +85,14 @@ font-size: 16px;
 font-family: "DM Sans", sans-serif;
 font-weight: 400;
 cursor: pointer;
-background-color: #F86338;
+
 `
 
 const Right = styled.div`
 flex:1;
 padding: 20px;
 margin-top:9rem;
-background-color: #F86338;
+
 `
 
  const ContactItem = styled.div`
@@ -113,7 +102,7 @@ align-items: center;
 font-size: 16px;
 font-family: "DM Sans", sans-serif;
 font-weight: 700;
-background-color: #F86338;
+
  `
 
 const Footer = () => {
@@ -211,7 +200,7 @@ const Footer = () => {
         <Right>
             <Title>Contact</Title>
             <ListItem>
-             <ContactItem> <Room style={{marginRight: "10px"}}/>  8819 Ohio St. South Gate, California 90280  </ContactItem>
+             <ContactItem> <Room style={{marginRight: "10px"}}/>8819 Ohio St. South Gate, California 90280  </ContactItem>
              <ContactItem> <MailOutline style={{marginRight: "10px"}}/>  ourstudio@hello.com  </ContactItem>
             <ContactItem> <Phone style={{marginRight: "10px"}}/>  +271 386-647-3637  </ContactItem>
             </ListItem>
